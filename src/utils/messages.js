@@ -8,4 +8,13 @@ const passwordMessage = {
   invalidFormat: 'O "password" deve ter pelo menos 6 caracteres',
 };
 
-module.exports = { emailMessage, passwordMessage };
+const authorizationMessage = {
+  empty: 'Token não encontrado',
+  invalidFormat: 'Token inválido',
+};
+
+module.exports = {
+  emailMessage,
+  passwordMessage,
+  authorizationMessage,
+};

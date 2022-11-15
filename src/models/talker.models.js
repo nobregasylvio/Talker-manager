@@ -31,4 +31,4 @@ async function writeTalker(newPerson) {
 module.exports = {
   talker,
   writeTalker,
-}
+};
