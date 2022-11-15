@@ -6,4 +6,13 @@ async function allTalker(_req, res) {
   return res.status(HTTP_OK_STATUS).json(speaker);
 }
 
-module.exports = allTalker;
+async function addTalker(req, res) {
+  const speaker = await talker();
+  const id = speaker.length + 1;
+  const person = { ...req.body, id };
+  speaker.push(person);
+
+  return res.status(HTTP_OK_STATUS).json(speaker);
+}
+
+module.exports = { allTalker, addTalker };
