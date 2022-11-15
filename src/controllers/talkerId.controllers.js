@@ -1,7 +1,5 @@
 const talker = require('../models/talker.models');
-
-const HTTP_OK_STATUS = 200;
-const HTTP_ERROR_STATUS = 404;
+const { HTTP_ERROR_STATUS, HTTP_OK_STATUS } = require('../utils/httpStatus');
 
 async function talkerId(req, res) {
   const speaker = await talker();
