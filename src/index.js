@@ -1,26 +1,18 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-
-const allTalker = require('./controllers/talker.controllers');
-const talkerId = require('./controllers/talkerId.controllers');
-const login = require('./controllers/login.controllers');
-
-const { emailValidation, passwordValidation } = require('./middlewares/login.middlewares');
+const routes = require('./routes/routes');
+const { HTTP_OK_STATUS } = require('./utils/httpStatus');
 
 const app = express();
 app.use(bodyParser.json());
+app.use(routes);
 
-const HTTP_OK_STATUS = 200;
 const PORT = '3000';
 
 // Não remova esse endpoint, e para o avaliador funcionar
 app.get('/', (_req, res) => {
   res.status(HTTP_OK_STATUS).send();
 });
-
-app.get('/talker', allTalker); 
-app.get('/talker/:id', talkerId);
-app.post('/login', emailValidation, passwordValidation, login);
 
 app.listen(PORT, () => {
   console.log('Online');
