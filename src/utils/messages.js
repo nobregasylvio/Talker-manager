@@ -13,8 +13,14 @@ const authorizationMessage = {
   invalidFormat: 'Token inválido',
 };
 
+const nameMessage = {
+  empty: 'O campo "name" é obrigatório',
+  invalidFormat: 'O "name" deve ter pelo menos 3 caracteres',
+};
+
 module.exports = {
   emailMessage,
   passwordMessage,
   authorizationMessage,
+  nameMessage,
 };
