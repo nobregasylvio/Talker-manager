@@ -18,9 +18,15 @@ const nameMessage = {
   invalidFormat: 'O "name" deve ter pelo menos 3 caracteres',
 };
 
+const ageMessage = {
+  empty: 'O campo "age" é obrigatório',
+  invalidFormat: 'A pessoa palestrante deve ser maior de idade',
+};
+
 module.exports = {
   emailMessage,
   passwordMessage,
   authorizationMessage,
   nameMessage,
+  ageMessage,
 };
