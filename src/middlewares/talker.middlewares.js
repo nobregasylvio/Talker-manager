@@ -1,5 +1,5 @@
 const { HTTP_UNAUTHORIZED_STATUS, HTTP_BAD_REQUST_STATUS } = require('../utils/httpStatus');
-const { authorizationMessage, nameMessage, ageMessage, talkMessage } = require('../utils/messages');
+const { authorizationMessage, nameMessage, ageMessage, talkMessage, watchedAtMessage } = require('../utils/messages');
 
 function authorizationValidation(req, res, next) {
   const { authorization } = req.headers;
@@ -59,9 +59,25 @@ function talkValidation(req, res, next) {
   next();
 }
 
+function watchedAtValidation(req, res, next) {
+  const { watchedAt } = req.body.talk;
+  const { empty, invalidFormat } = watchedAtMessage;
+
+  if (!watchedAt) return res.status(HTTP_BAD_REQUST_STATUS).json({ message: empty }); 
+
+  const formatDate = /^([0-2][0-9]|(3)[0-1])(\/)(((0)[0-9])|((1)[0-2]))(\/)\d{4}$/i;
+  const isValid = formatDate.test(watchedAt);
+
+  if (!isValid) return res.status(HTTP_BAD_REQUST_STATUS).json({ message: invalidFormat }); 
+
+  next();
+}
+
+
 module.exports = {
   authorizationValidation,
   nameValidation,
   ageValidation,
   talkValidation,
+  watchedAtValidation,
 };

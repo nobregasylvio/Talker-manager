@@ -25,6 +25,11 @@ const ageMessage = {
 
 const talkMessage = 'O campo "talk" é obrigatório';
 
+const watchedAtMessage = {
+  empty: 'O campo "watchedAt" é obrigatório',
+  invalidFormat: 'O campo "watchedAt" deve ter o formato "dd/mm/aaaa"',
+};
+
 module.exports = {
   emailMessage,
   passwordMessage,
@@ -32,4 +37,5 @@ module.exports = {
   nameMessage,
   ageMessage,
   talkMessage,
+  watchedAtMessage,
 };
