@@ -20,9 +20,20 @@ async function writeTalker(newPerson) {
     const newTalker = { id, ...newPerson };
     oldTalker.push(newTalker);
 
-    await fs.writeFile(talkerPath, JSON.stringify(oldTalker));
+    await fs.writeFile(talkerPath, JSON.stringify(oldTalker, null, 2));
 
     return oldTalker;
+  } catch (err) {
+    return `Erro ao Escrever o Arquivo: ${err.message}`;
+  }
+}
+
+async function deleteTalker(id) {
+  try {
+    const oldTalker = await talker();
+    const newTalker = oldTalker.filter((object) => object.id !== +id);
+
+    return await fs.writeFile(talkerPath, JSON.stringify(newTalker, null, 2));
   } catch (err) {
     return `Erro ao Escrever o Arquivo: ${err.message}`;
   }
@@ -31,4 +42,5 @@ async function writeTalker(newPerson) {
 module.exports = {
   talker,
   writeTalker,
+  deleteTalker,
 };

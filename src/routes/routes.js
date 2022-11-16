@@ -1,7 +1,7 @@
 const express = require('express');
 const login = require('../controllers/login.controllers');
 const { allTalker, addTalker } = require('../controllers/talker.controllers');
-const talkerId = require('../controllers/talkerId.controllers');
+const { talkerId, deleteTalkerId } = require('../controllers/talkerId.controllers');
 const { passwordValidation, emailValidation } = require('../middlewares/login.middlewares');
 const {
   authorizationValidation,
@@ -25,5 +25,7 @@ routes.post('/talker', authorizationValidation,
                       watchedAtValidation,
                       rateValidation,
                       addTalker);
+
+routes.delete('/talker/:id', authorizationValidation, deleteTalkerId);
 
 module.exports = routes;

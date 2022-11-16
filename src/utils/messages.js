@@ -1,3 +1,5 @@
+const talkerIdMessage = 'Pessoa palestrante não encontrada';
+
 const emailMessage = {
   empty: 'O campo "email" é obrigatório',
   invalidFormat: 'O "email" deve ter o formato "email@email.com"',
@@ -36,6 +38,7 @@ const rateMessage = {
 };
 
 module.exports = {
+  talkerIdMessage,
   emailMessage,
   passwordMessage,
   authorizationMessage,
