@@ -16,9 +16,7 @@ async function talker() {
 async function writeTalker(newPerson) {
   try {
     const oldTalker = await talker();
-    const id = oldTalker.length + 1;
-    const newTalker = { id, ...newPerson };
-    oldTalker.push(newTalker);
+    oldTalker.push(newPerson);
 
     await fs.writeFile(talkerPath, JSON.stringify(oldTalker, null, 2));
 

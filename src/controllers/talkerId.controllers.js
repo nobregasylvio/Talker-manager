@@ -1,4 +1,4 @@
-const { talker, deleteTalker } = require('../models/talker.models');
+const { talker, deleteTalker, writeTalker } = require('../models/talker.models');
 const { talkerIdMessage } = require('../utils/messages');
 const {
   HTTP_ERROR_STATUS,
