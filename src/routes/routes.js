@@ -9,6 +9,7 @@ const {
   ageValidation,
   talkValidation,
   watchedAtValidation,
+  rateValidation,
 } = require('../middlewares/talker.middlewares');
 
 const routes = express.Router();
@@ -22,6 +23,7 @@ routes.post('/talker', authorizationValidation,
                       ageValidation,
                       talkValidation,
                       watchedAtValidation,
+                      rateValidation,
                       addTalker);
 
 module.exports = routes;

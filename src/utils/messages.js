@@ -30,6 +30,11 @@ const watchedAtMessage = {
   invalidFormat: 'O campo "watchedAt" deve ter o formato "dd/mm/aaaa"',
 };
 
+const rateMessage = {
+  empty: 'O campo "rate" é obrigatório',
+  invalidFormat: 'O campo "rate" deve ser um inteiro de 1 à 5',
+};
+
 module.exports = {
   emailMessage,
   passwordMessage,
@@ -38,4 +43,5 @@ module.exports = {
   ageMessage,
   talkMessage,
   watchedAtMessage,
+  rateMessage,
 };
