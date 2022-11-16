@@ -19,4 +19,12 @@ async function addTalker(req, res) {
   return res.status(HTTP_CREATED_STATUS).json(lastTalker);
 }
 
-module.exports = { allTalker, addTalker };
+async function searchTalker(req, res) {
+  const { q } = req.query;
+  const speaker = await talker();
+  const result = speaker.filter(({ name }) => name.toLowerCase().includes(q.toLowerCase()));
+
+  return res.status(HTTP_OK_STATUS).json(result);
+}
+
+module.exports = { allTalker, addTalker, searchTalker };

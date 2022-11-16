@@ -1,7 +1,7 @@
 const express = require('express');
 const login = require('../controllers/login.controllers');
-const { allTalker, addTalker } = require('../controllers/talker.controllers');
-const { talkerId, deleteTalkerId, editTalker } = require('../controllers/talkerId.controllers');
+const { allTalker, addTalker, searchTalker } = require('../controllers/talker.controllers');
+const { talkerId, deleteTalkerId } = require('../controllers/talkerId.controllers');
 const { passwordValidation, emailValidation } = require('../middlewares/login.middlewares');
 const {
   authorizationValidation,
@@ -13,6 +13,8 @@ const {
 } = require('../middlewares/talker.middlewares');
 
 const routes = express.Router();
+
+routes.get('/talker/search', authorizationValidation, searchTalker);
 
 routes.get('/talker', allTalker); 
 routes.get('/talker/:id', talkerId);
