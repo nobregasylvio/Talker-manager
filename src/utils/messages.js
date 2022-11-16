@@ -23,10 +23,13 @@ const ageMessage = {
   invalidFormat: 'A pessoa palestrante deve ser maior de idade',
 };
 
+const talkMessage = 'O campo "talk" é obrigatório';
+
 module.exports = {
   emailMessage,
   passwordMessage,
   authorizationMessage,
   nameMessage,
   ageMessage,
+  talkMessage,
 };

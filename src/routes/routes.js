@@ -7,6 +7,7 @@ const {
   authorizationValidation,
   nameValidation,
   ageValidation,
+  talkValidation,
 } = require('../middlewares/talker.middlewares');
 
 const routes = express.Router();
@@ -15,6 +16,10 @@ routes.get('/talker', allTalker);
 routes.get('/talker/:id', talkerId);
 
 routes.post('/login', emailValidation, passwordValidation, login);
-routes.post('/talker', authorizationValidation, nameValidation, ageValidation, addTalker);
+routes.post('/talker', authorizationValidation,
+                      nameValidation,
+                      ageValidation,
+                      talkValidation,
+                      addTalker);
 
 module.exports = routes;
